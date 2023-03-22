@@ -1,0 +1,31 @@
+<%= form_with(model: idproof) do |form| %>
+  <% if idproof.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(idproof.errors.count, "error") %> prohibited this idproof from being saved:</h2>
+      <ul>
+        <% idproof.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :doctype, style: "display: block" %>
+    <%= form.select :doctype, Idproof.doctypes.keys %>
+  </div>
+  <div>
+    <%= form.label :document, style: "display: block" %>
+    <%= form.file_field :document %>
+  </div>
+  <div>
+    <%= form.label :merchant_id, style: "display: block" %>
+    <%= form.collection_select :merchant_id, Merchant.all, :id, :email %>
+  </div>
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, Idproof.statuses.keys %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

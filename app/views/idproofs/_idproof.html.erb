@@ -1,0 +1,18 @@
+<div id="<%= dom_id idproof %>">
+  <p>
+    <strong>Document:</strong>
+    <%= idproof.document %>
+  </p>
+  <p>
+    <strong>DocType:</strong>
+    <%= idproof.doctype %>
+  </p>
+  <p>
+    <strong>Status:</strong>
+    <%= idproof.status %>
+  </p>
+  <p>
+    <strong>Merchant:</strong>
+    <%= Merchant.find(idproof.merchant_id).email %>
+  </p>
+</div>

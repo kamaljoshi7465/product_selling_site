@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @idproof %>
+
+<div>
+  <%= link_to "Edit this idproof", edit_idproof_path(@idproof) %> |
+  <%= link_to "Back to idproofs", idproofs_path %>
+
+  <%= button_to "Destroy this idproof", @idproof, method: :delete %>
+</div>

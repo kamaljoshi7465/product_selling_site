@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Idproofs</h1>
+
+<div id="idproofs">
+  <% @idproofs.each do |idproof| %>
+    <%= render idproof %>
+    <p>
+      <%= link_to "Show this idproof", idproof %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New idproof", new_idproof_path %>
