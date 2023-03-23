@@ -18,8 +18,9 @@ class ProductimagesController < ApplicationController
 
   def create
     @productimage = Productimage.new(productimage_params) 
+    @productimage.product_id = params[:product_id]
     if @productimage.save
-      redirect_to @productimage 
+      redirect_to products_path  
     else
       render :new, status: :unprocessable_entity
     end

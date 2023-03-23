@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :productimages
-  resources :products
+  # resources :productimages
+  resources :products do
+    resources :productimages
+  end       
   resources :idproofs
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

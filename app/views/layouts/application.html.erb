@@ -12,10 +12,13 @@
     <strong>
       <%= link_to "HOME", root_path %>
     </strong>
-    <%# if logged_in? %>
+    <% if merchant_signed_in? %>
+      <%= link_to "Logout", destroy_merchant_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login", new_merchant_session_path %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%# end %>
   </body>
 </html>

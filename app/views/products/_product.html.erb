@@ -1,8 +1,8 @@
 <div>
-  <p>
+  <h3>
     <strong>Name:</strong>
     <%= product.name %>
-  </p>
+  </h3>
   <p>
     <strong>Desc:</strong>
     <%= product.desc %>
@@ -19,11 +19,11 @@
   </p>
   <p>
     <strong>Price:</strong>
-    <%= product.price %>
+    <%= product.price %> /-
   </p>
   <p>
-    <strong>Merchant:</strong>
-    <%= Merchant.find(product.merchant_id).email %>
+    <%# <strong>Merchant:</strong> %>
+    <%#= Merchant.find(product.merchant_id).email %>
   </p>
   <p>
     <strong>Status:</strong>

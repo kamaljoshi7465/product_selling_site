@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <button><%= link_to "New Product", new_product_path %></button>
-<button><%= link_to "New Product Image", new_productimage_path %></button>
+<%#= link_to "New Product Image", new_productimage_path %>
 <button><%= link_to "New ID proof",  new_idproof_path%></button>
 <h1>Products</h1>
 <div id="products">
@@ -9,6 +9,7 @@
     <p>
       <%= link_to "Show this product", product %>
     </p>
+    <p>----------------------------------------------------------------------------------------------------------</p>
   <% end %>
 </div>
-<%= link_to "New product", new_product_path %>
+<%#= link_to "New product", new_product_path %>

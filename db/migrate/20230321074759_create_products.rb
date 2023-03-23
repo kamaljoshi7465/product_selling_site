@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.references :category
       t.string :image
       t.float :price
-      t.string :satus
+      t.string :status
 
       t.timestamps
     end

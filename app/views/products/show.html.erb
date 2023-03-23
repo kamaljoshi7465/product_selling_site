@@ -1,11 +1,12 @@
 <p style="color: green"><%= notice %></p>
 <%= render @product %>
-
-<strong>Images</strong>
-<% @product.productimages.each do |productimage| %>
-  <%= image_tag productimage.image.url %>
-<% end %>
-
+<%# <strong>Images:</strong><br> %>
+<%# @product.productimages.each do |productimage| %>
+  <%#= image_tag productimage.image.url, size: 15*15 %>
+<%# end %>
+<%= render @product.productimages %>
+<%= render "productimages/form" %>
+<%#= render "productimages/show" %>
 <div>
   <%= link_to "Edit this product", edit_product_path(@product) %> |
   <%= link_to "Back to products", products_path %>

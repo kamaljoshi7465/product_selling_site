@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   # before_action :set_product, only: %i[ show edit update destroy ]
 
   def index
-    @products = Product.all
+    # @products = Product.all
+    @products = Product.where(merchant_id: current_merchant.id)
   end
 
   def show
@@ -20,6 +21,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params) 
+    @product.merchant_id = current_merchant.id 
     if @product.save
       redirect_to @product
     else

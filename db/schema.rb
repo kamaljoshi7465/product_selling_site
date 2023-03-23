@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_132821) do
     t.integer "category_id"
     t.string "image"
     t.float "price"
-    t.string "satus"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "merchant_id", null: false

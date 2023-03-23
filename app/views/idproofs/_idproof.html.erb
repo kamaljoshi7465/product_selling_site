@@ -1,7 +1,8 @@
 <div id="<%= dom_id idproof %>">
   <p>
     <strong>Document:</strong>
-    <%= idproof.document %>
+    <%#= idproof.document %>
+    <%= image_tag idproof.document.url, size: 15*15 %>
   </p>
   <p>
     <strong>DocType:</strong>
