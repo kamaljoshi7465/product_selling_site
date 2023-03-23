@@ -10,15 +10,18 @@ class ProductimagesController < ApplicationController
 
   def new
     @productimage = Productimage.new
+    @product = Product.find(params[:product_id])
   end
 
   def edit
     @productimage = Productimage.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
 
   def create
-    @productimage = Productimage.new(productimage_params) 
+    @productimage = Productimage.new(productimage_params)   
     @productimage.product_id = params[:product_id]
+    @product = Product.find(params[:product_id])
     if @productimage.save
       redirect_to products_path  
     else
@@ -27,7 +30,7 @@ class ProductimagesController < ApplicationController
   end
 
   def update
-    @productimage = Productimageproductimage.find(params[:id])
+    @productimage = Productimage.find(params[:id])
     if @productimage.update(productimage_params)
       redirect_to @productimage
     else
@@ -39,7 +42,7 @@ class ProductimagesController < ApplicationController
     @productimage = Productimage.find(params[:id])
     @productimage.destroy
   
-    redirect_to productimages_path, status: :see_other
+    redirect_to product_productimages_path
   end
   private
   def set_productimage

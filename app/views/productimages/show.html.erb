@@ -1,10 +1,7 @@
 <p style="color: green"><%= notice %></p>
-
 <%= render @productimage %>
-
 <div>
-  <%= link_to "Edit this productimage", edit_productimage_path(@productimage) %> |
-  <%= link_to "Back to productimages", productimages_path %>
-
-  <%= button_to "Destroy this productimage", @productimage, method: :delete %>
+  <%= link_to "Edit this productimage", edit_product_productimage_path %> |
+  <%#= link_to "Back to productimages", productimages_path %>
+  <%= button_to "Destroy this productimage", product_productimage_path, method: :delete %>
 </div>
