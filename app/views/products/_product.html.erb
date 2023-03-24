@@ -1,32 +1,46 @@
-<div>
-  <h3>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </h3>
-  <p>
-    <strong>Desc:</strong>
-    <%= product.desc %>
-  </p>
-  <p>
-    <strong>Category:</strong>
-    <%= Category.find(product.category_id).categoryname %>
-  </p>
-  <p>
-    <%# <strong>Image:</strong> %>
-    <%#= product.image %>
-    <%#= image_tag productimage.image.url, size:20*20 %>
-    <%# <img src="<%= product.image %>
-  </p>
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %> /-
-  </p>
-  <p>
-    <%# <strong>Merchant:</strong> %>
-    <%#= Merchant.find(product.merchant_id).email %>
-  </p>
-  <p>
-    <strong>Status:</strong>
-    <%= product.status %>
-  </p>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container">
+  <h3 class="h3">BUISNESS</h3>
+  <div class="row">
+    <% pro.each do |product| %>
+      <div class="col-md-3 col-sm-6">
+        <div class="product-grid">
+          <div class="product-image">
+            <a href="#">
+              <img class="pic-1" src="<%= product.productimages.first.image if product.productimages.any? %>">
+              <img class="pic-2" src="<%= product.productimages.second.image if product.productimages.any? %>">
+            </a>
+            <ul class="social">
+              <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+              <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+              <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+            <span class="product-new-label">Sale</span>
+            <span class="product-discount-label">20%</span>
+          </div>
+          <ul class="rating">
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star disable"></li>
+          </ul>
+          <div class="product-content">
+            <h3 class="title"><a href="products/<%= product.id %>"><h4><%= product.name %></h4></a></h3>
+            <div class="price">₹<%= product.price %> /-
+              <br>
+              <span><b>Status: </b><%= product.status %></span>
+            </div>
+            <a class="add-to-cart" href="">+ Add To Cart</a>
+          </div>
+        </div>
+      <%#= link_to "Show this product", product                     %>
+      </div>
+    <% end %>
+  </div>
 </div>
+<%= render "style"%>

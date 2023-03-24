@@ -1,4 +1,4 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<%# <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> %>
 <%# <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> %>
 <%# <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> %>
 
@@ -9,20 +9,15 @@
 <button><%= link_to "New ID proof",  new_idproof_path%></button>
 
 
-<h1>Products</h1>
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
+<%# <h1>Products</h1> %>
+<%# <div id="products"> %>
+  <%# @products.each do |product| %>
+    <%= render "product", pro: @products %>
     <p>
-      <%= link_to "Show this product", product %>
+      <%#= link_to "Show this product", @product %>
     </p>
-    <p>----------------------------------------------------------------------------------------------------------</p>
-  <% end %>
+    <%# <p>----------------------------------------------------------------------------------------------------------</p> %>
+  <%# end %>
 </div>
 
 
-<%#= link_to "New product", new_product_path %>
-<!------ Include the above in your HEAD tag ---------->
-<%= render "headtag" %>
-<%# ----------------style------------------- %>
-<%= render "style" %>
