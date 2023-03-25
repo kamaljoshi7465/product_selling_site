@@ -16,7 +16,7 @@
             </a>
             <ul class="social">
               <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-              <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+              <li><a href="/products/<%= product.id %>/wishlist" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
               <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
             </ul>
             <span class="product-new-label">Sale</span>
@@ -30,15 +30,17 @@
             <li class="fa fa-star disable"></li>
           </ul>
           <div class="product-content">
-            <h3 class="title"><a href="products/<%= product.id %>"><h4><%= product.name %></h4></a></h3>
+            <h3 class="title"><a href="products/<%= product.id %>">
+                <h4><%= product.name %></h4>
+              </a></h3>
             <div class="price">₹<%= product.price %> /-
               <br>
               <span><b>Status: </b><%= product.status %></span>
             </div>
-            <a class="add-to-cart" href="">+ Add To Cart</a>
+            <a class="add-to-cart" href="<%= cart_product_path(product.id) %>">+ Add To Cart</a>
           </div>
         </div>
-      <%#= link_to "Show this product", product                     %>
+        <%#= link_to "Show this product", product %>
       </div>
     <% end %>
   </div>

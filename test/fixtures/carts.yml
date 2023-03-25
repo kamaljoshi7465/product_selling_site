@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cartitem: 1
+  product: one
+  merchant: one
+
+two:
+  cartitem: 1
+  product: two
+  merchant: two

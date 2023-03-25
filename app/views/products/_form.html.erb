@@ -24,8 +24,8 @@
     <%= form.select :status, Product.statuses.keys %>
   </div>
   <div>
-    <%#= form.label :merchant_id, style: "display: block" %>
-    <%#= form.collection_select :merchant_id, Merchant.all, :id, :email %>
+    <%= form.label :merchant_id, style: "display: block" %>
+    <%= form.collection_select :merchant_id, Merchant.all, :id, :email %>
   </div>
   <div>
     <%= form.submit %>

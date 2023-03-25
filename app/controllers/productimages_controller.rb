@@ -32,7 +32,7 @@ class ProductimagesController < ApplicationController
   def update
     @productimage = Productimage.find(params[:id])
     if @productimage.update(productimage_params)
-      redirect_to @productimage
+      redirect_to product_productimage_url
     else
       render :edit, status: :unprocessable_entity
     end

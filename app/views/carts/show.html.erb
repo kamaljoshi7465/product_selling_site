@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+<div>
+  <p>
+    <strong>Cartitem:</strong>
+    <%= @cart.cartitem %>
+  </p>
+  <p>
+    <strong>Product:</strong>
+    <%= @cart.product_id %>
+  </p>
+  <p>
+   <strong>Merchant:</strong>
+    <%= @cart.merchant_id %>
+  </p>
+</div>
+<div>
+  <%#= link_to "Edit this cart", edit_cart_path(@cart) %> 
+  <%#= link_to "Back to carts", carts_path %>
+  <%= link_to "Destroy this cart", @cart, method: :delete %>
+</div>
