@@ -1,7 +1,8 @@
 class CartsController < ApplicationController
 
   def index 
-    @carts = Cart.all 
+    # @carts = Cart.all 
+    @carts = Cart.where(merchant_id: current_merchant.id) 
   end
 
   def show 

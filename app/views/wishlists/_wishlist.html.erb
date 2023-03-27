@@ -38,7 +38,7 @@
               <div class="col-sm-3 col-xs-3">
                 <img
                   class="img-responsive"
-                  src="https://c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"
+                  src="<%= wishlist.product.productimages.first.image if wishlist.product.productimages.any? %>"
                 />
               </div>
               <div class="col-sm-6 col-xs-6">
@@ -48,7 +48,10 @@
                 </div>
               </div>
               <div class="col-sm-3 col-xs-3 text-right">
-                <h6><span>$</span><%= wishlist.product.price %></h6>
+                <h6><span>₹</span><%= wishlist.product.price %></h6>
+              </div>
+              <div>
+                  <%= link_to "Remove this product", remove_from_wishlist_wishlist_path(wishlist), method: :delete %><br>
               </div>
             </div>
             <div class="form-group"><hr /></div>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :wishlists
+  resources :wishlists do 
+    member do
+      get :remove_from_wishlist, to: "wishlists#destroy"
+    end
+  end
   resources :orders
   # resources :productimages
   resources :carts do 

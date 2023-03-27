@@ -19,12 +19,13 @@
 .link_para {
   text-align: center;
 }
-.conteiner{
-    display: inline;
-    background-color: black;
+.conteiner {
+  display: inline;
+  background-color: black;
 }
 
-.productsimagess{
+.productsimagess {
   width: 500px;
   height: 500px;
 }
+

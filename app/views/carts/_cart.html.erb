@@ -1,108 +1,82 @@
 <%# <div id="<%= dom_id cart %>
-  <%# <p> %>
-    <%# <strong>Cartitem:</strong> %>
-    <%#= cart.cartitem %>
-  <%# </p> %>
-
-  <%# <p> %>
-    <%# <strong>Product:</strong> %>
-    <%#= cart.product_id %>
-  <%# </p> %>
-
-  <%# <p> %>
-    <%# <strong>Merchant:</strong> %>
-    <%#= cart.merchant_id %>
-  <%# </p> %>
-
+<%# <p> %>
+<%# <strong>Cartitem:</strong> %>
+<%#= cart.cartitem %>
+<%# </p> %>
+<%# <p> %>
+<%# <strong>Product:</strong> %>
+<%#= cart.product_id %>
+<%# </p> %>
+<%# <p> %>
+<%# <strong>Merchant:</strong> %>
+<%#= cart.merchant_id %>
+<%# </p> %>
 <%# </div> %>
-
-
-
-<link
-  href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-  rel="stylesheet"
-  id="bootstrap-css"
-/>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<%# <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> %>
 <div class="container wrapper">
   <div class="row cart-body">
-    <form class="form-horizontal" method="post" action="">
-      <div
-        class=""
-      >
+    <form class="form-horizontal" method="post" action="" >
+      <div class="">
         <!--REVIEW ORDER-->
         <div class="panel panel-info">
           <div class="panel-heading">
             Review Order
           </div>
           <div class="panel-body">
-            <div class="form-group">
-
-
+            <div class="form-group ">
               <% @carts.each do |cart| %>
-              <div class="col-sm-3 col-xs-3">
-                <img
-                  class="img-responsive"
-                  src="https://c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg"
-                />
+                <div class="col-sm-3 col-xs-3 ">
+                  <img class="img-responsive" src="<%= cart.product.productimages.first.image if cart.product.productimages.any? %>" height="60" width="100" />
                   <%#= cart.product.inspect %>
                   <%#= cart.product.name %>
-              </div>
-              <div class="col-sm-6 col-xs-6">
-                <div class="col-xs-12">
-                <a href="carts/<%=cart.id%>"><%= cart.product.name %></a>
                 </div>
-
+                <div class="col-sm-6 col-xs-6 y-9">
+                  <div class="col-xs-12">
+                    <h2><a href="carts/<%=cart.id%>"><%= cart.product.name %></a></h2>
+                  </div>
+                  <div class="col-xs-12"><small>Quantity:<span>1</span></small></div>
+                </div>
+                <div class="col-sm-3 col-xs-3 text-right">
+                  <h6><span>₹</span><%= cart.product.price %></h6>
+                  <%= link_to "Destroy this cart", remove_from_cart_cart_path(cart), method: :delete %><br>
+                  <%= link_to "Order",order_cart_path(cart) %><br>
+                  <%#= link_to "Add to Wishlist",wishlist_product_path(cart) %>
+                  <a href="/products/<%= cart.product.id %>/wishlist" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i>Add to wishlist</a>
+                  <%#= link_to "Add to wishlist", wishlist_path(cart) %>
+                </div>
+                <div class="form-group"><hr/></div>
+              <% end %>
+              <div class="form-group">
                 <div class="col-xs-12">
-                  <small>Quantity:<span>1</span></small>
+                  <strong>Subtotal</strong>
+                  <div class="pull-right"><span>₹</span><span>200.00</span></div>
+                </div>
+                <div class="col-xs-12">
+                  <small>Shipping</small>
+                  <div class="pull-right"><span>-</span></div>
                 </div>
               </div>
-              <div class="col-sm-3 col-xs-3 text-right">
-                <h6><span>$</span><%= cart.product.price %></h6>
-              <%= link_to "Destroy this cart", remove_from_cart_cart_path(cart), method: :delete %><br>
-              <%= link_to "Order",order_cart_path(cart) %><br>
-              <%#= link_to "Add to wishlist", wishlist_path(cart) %>
+              <div class="form-group"><hr /></div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <strong>Order Total</strong>
+                  <div class="pull-right"><span>₹</span><span></span></div>
+                </div>
               </div>
-            </div>
-            <div class="form-group"><hr/></div>
-            <% end %>
-
-
-            <div class="form-group">
-              <div class="col-xs-12">
-                <strong>Subtotal</strong>
-                <div class="pull-right"><span>$</span><span>200.00</span></div>
-              </div>
-              <div class="col-xs-12">
-                <small>Shipping</small>
-                <div class="pull-right"><span>-</span></div>
-              </div>
-            </div>
-            <div class="form-group"><hr /></div>
-            <div class="form-group">
-              <div class="col-xs-12">
-                <strong>Order Total</strong>
-                <div class="pull-right"><span>$</span><span>150.00</span></div>
-              </div>
-            </div>
-
               <div class="form-group">
                 <div class="col-xs-12">
                   <div class="pull-right"><span></span><span><a class="btn-primary btn" href="">Checkout</a></span></div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
     </form>
   </div>
 </div>
-
-
-
-
 <style>
   html,
   body,
@@ -321,8 +295,8 @@
   /* images end */
 
   /*
- * BOOTSTRAP
- */
+   * BOOTSTRAP
+   */
   .container {
     border: none;
   }
@@ -418,9 +392,16 @@
     }
   }
   /*
-@media only screen and (max-width: 777px){
+  @media only screen and (max-width: 777px){
     .container{
         overflow-x: hidden;
     }
-}*/
+  }*/
+  <%#
+</style> %>
+<%# <style> %>
+.form-horizontal .form-group {
+margin-right: 28px;
+margin-left: 28px;
+}
 </style>

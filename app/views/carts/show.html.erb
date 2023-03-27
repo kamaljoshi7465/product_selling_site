@@ -9,12 +9,60 @@
     <%= @cart.product_id %>
   </p>
   <p>
-   <strong>Merchant:</strong>
+    <strong>Merchant:</strong>
     <%= @cart.merchant_id %>
   </p>
 </div>
 <div>
-  <%#= link_to "Edit this cart", edit_cart_path(@cart) %> 
+  <%#= link_to "Edit this cart", edit_cart_path(@cart) %>
   <%#= link_to "Back to carts", carts_path %>
   <%= link_to "Destroy this cart", @cart, method: :delete %>
 </div>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container">
+  <h3 class="h3">CARTS</h3>
+  <div class="row">
+    <% Cart.all.each do |cart| %>
+      <div class="col-md-3 col-sm-6">
+        <div class="product-grid">
+          <div class="product-image">
+            <a href="#">
+              <img class="pic-1" src="<%= cart.product.productimages.first.image if cart.product.productimages.any? %>">
+              <img class="pic-2" src="<%= cart.product.productimages.second.image if cart.product.productimages.any? %>">
+            </a>
+            <ul class="social">
+              <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+              <li><a href="/products/<%#= product.id %>/wishlist" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+              <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+            <span class="product-new-label">Sale</span>
+            <span class="product-discount-label">20%</span>
+          </div>
+          <ul class="rating">
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star"></li>
+            <li class="fa fa-star disable"></li>
+          </ul>
+          <div class="product-content">
+            <h3 class="title"><a href="products/<%= cart.id %>">
+                <h4><%= cart.product.name %></h4>
+              </a></h3>
+            <div class="price">₹<%= cart.product.price %> /-
+              <br>
+              <span><b>Status: </b><%= cart.product.status %></span>
+            </div>
+            <a class="add-to-cart" href="<%#= cart_product_path(product.id) %>">+ Add To Cart</a>
+          </div>
+        </div>
+        <%#= link_to "Show this product", product %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "products/style"%>
